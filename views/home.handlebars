@@ -5,12 +5,18 @@
     {{#each results}}
     <li class="list-group-item">
     </li>>{{this.title}}</li>
+    </li>>{{this.deleted}}</li>
+
     <button type="button" class="btn btn-secondary">{{this.link}}</button>
     <form action={{this.link}}>
-        <input type="submit" value="Go to Google" />
+        <input type="submit" value="Go to article" />
+    </form>
+    <form action={{this.deleted}}>
+        <input class="delete-button" type="submit" value="delete article" />
     </form>
 
     <li></li>
+    {{!-- use an if statement to only show things with deleted value of false. on the database side, like with sequelize, handle it there. --}}
 
     {{/each}}
 </ul>

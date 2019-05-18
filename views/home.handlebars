@@ -1,13 +1,20 @@
 <h1>welcome</h1>
 {{!-- {{ results}}
 {{ link}} --}}
-<ul>
+<ul class="list-group">
     {{#each results}}
-    <li>{{this.title}}</li>
-    <li>{{this.link}}</li>
+    <li class="list-group-item">
+    </li>>{{this.title}}</li>
+    <button type="button" class="btn btn-secondary">{{this.link}}</button>
+    <form action={{this.link}}>
+        <input type="submit" value="Go to Google" />
+    </form>
+
+    <li></li>
 
     {{/each}}
 </ul>
+
 {{!-- <ul>
     {{#each link}}
     <li>{{this.link}}</li>

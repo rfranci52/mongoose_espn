@@ -13,6 +13,11 @@ app.set("port", (process.env.PORT || 3000));
 app.listen(app.get("port"), function () {
     console.log(`server listening on port ${app.get('port')}`)
 });
+// app.use('/api', api); // redirect API calls
+app.use('/', express.static(__dirname + '/www')); // redirect root
+app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
+app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
 app.get("/", function (req, res) {
     axios.get("http://espn.com").then(
         response => {

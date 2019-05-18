@@ -33,7 +33,7 @@ app.get("/", function (req, res) {
 
                 results.push({
                     title: title,
-                    link: `espn.com${link}`
+                    link: `http://espn.com${link}`
 
 
                 })

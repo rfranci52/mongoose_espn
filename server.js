@@ -51,22 +51,10 @@ app.get("/", function (req, res) {
             const $ = cheerio.load(response.data);
             let results = [];
 
-            $(".headlineStack__list").each(function (i, element) {
-                // Create a new Article using the `result` object built from scraping
-                db.espnArticle.create(results)
-                    .then(function (dbespnArticle) {
-                        // View the added result in the console
-                        console.log(dbespnArticle);
-                    })
-                    .catch(function (err) {
-                        // If an error occurred, log it
-                        console.log(err);
-                    });
-                // console.log(results)
-                // console.log("____________________________________")
 
+            $(".headlineStack__list > li").each(function (i, element) {
                 const title = $(element).text();
-                const link = $(element).children().find("a").attr("href");
+                const link = $(element).find("a").attr("href");
 
                 results.push({
                     title: title,
@@ -75,17 +63,24 @@ app.get("/", function (req, res) {
 
 
                 })
-
-
             })
 
-            // console.log(results),
-            for (var i in results) {
-                console.log(results[i])
-            }
+            // Create a new Article using the `result` object built from scraping
+            db.espnArticle.create(results)
+                .then(function (dbespnArticle) {
+
+                    // View the added result in the console
+                })
+                .catch(function (err) {
+                    // If an error occurred, log it
+                    console.log(err);
+                });
+            console.log(results)
 
 
 
+
+                
 
 
             res.render("home", {

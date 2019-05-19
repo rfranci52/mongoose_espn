@@ -1,6 +1,8 @@
 <h1>welcome</h1>
 {{!-- {{ results}}
+
 {{ link}} --}}
+
 <ul class="list-group">
     {{#each results}}
     <li class="list-group-item">
@@ -11,7 +13,7 @@
     <form action={{this.link}}>
         <input type="submit" value="Go to article" />
     </form>
-    <form action={{this.deleted}}>
+    <form action={{this.deleted}} >
         <input class="delete-button" type="submit" value="delete article" />
     </form>
 

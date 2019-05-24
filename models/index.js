@@ -2,5 +2,5 @@
 
 module.exports = {
   espnArticle: require("./espnArticle"),
-  // Note: require("./Note")
+  Note: require("./Note")
 };

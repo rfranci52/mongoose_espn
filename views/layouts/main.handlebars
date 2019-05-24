@@ -4,13 +4,33 @@
 <head>
     {{!-- https://stackoverflow.com/questions/26773767/purpose-of-installing-twitter-bootstrap-through-npm/35580597#35580597 --}}
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+     <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script> 
+    <script src="app.js"></script>
+
+
+
+
 
 </head>
 
 <body>
     {{{body}}}
+    <script>// Grab the articles as a json
+     // console.log("hello");
+$.getJSON("/articles", function(data) {
+  // For each one
+  for (var i = 0; i < data.length; i++) {
+    // Display the apropos information on the page
+    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+  }
+});
+var deleteButton = document.querySelectorAll("button");
+deleteButton.onclick = function() {
+  console.log("hello");
+}
+
+</script>
     
 </body>
 

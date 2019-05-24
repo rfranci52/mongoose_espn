@@ -26,6 +26,12 @@ var espnArticle = new Schema({
   deleted: {
     type: Boolean,
     required: true
+  }, delete_route: {
+    type: String,
+    required: true
+  },link_id: {
+    type: String,
+    required: true
   }
 });
 

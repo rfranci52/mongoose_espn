@@ -1,30 +1,34 @@
 <h1>welcome</h1>
-{{!-- {{ results}}
+  
 
-{{ link}} --}}
 
 <ul class="list-group">
+    
     {{#each results}}
+    
+
     <li class="list-group-item">
     </li>>{{this.title}}</li>
-    </li>>{{this.deleted}}</li>
+    </li>>{{this.deleted}}   
+
+</li>
+
 
     <button type="button" class="btn btn-secondary">{{this.link}}</button>
-    <form action={{this.link}}>
+    <form action={{this.link}}    
+         
+>
         <input type="submit" value="Go to article" />
     </form>
-    <form action={{this.deleted}} >
-        <input class="delete-button" type="submit" value="delete article" />
+	
+   
+    <form action={{this.delete_route}}>
+        
+        <input type="submit" value="delete" />
     </form>
 
     <li></li>
-    {{!-- use an if statement to only show things with deleted value of false. on the database side, like with sequelize, handle it there. --}}
 
     {{/each}}
 </ul>
 
-{{!-- <ul>
-    {{#each link}}
-    <li>{{this.link}}</li>
-    {{/each}}
-</ul> --}}
